@@ -3,12 +3,13 @@ import Image from "next/image";
 const PostsComponent = ({ post }: { post: Post }) => {
   return (
     <>
-      <a href={post.slug} key={post.slug} className="flex flex-col gap-4">
+      <a href={post.slug} className="flex flex-col gap-4">
         <div className="relative w-full h-60 object-cover">
           <Image
             src="https://cdn.devdojo.com/images/may2021/workout.jpg"
             layout="fill"
             className="rounded-xl"
+            alt="thumbnail"
           />
         </div>
         <h2 className="text-lg font-semibold">{post.title}</h2>

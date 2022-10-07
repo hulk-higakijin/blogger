@@ -16,7 +16,7 @@ const Home: NextPage<Props> = ({ allPosts }) => {
     <div className="container mx-auto px-8">
       <div className="grid grid-cols-3 gap-20">
         {allPosts.map((post) => (
-          <PostsComponent post={post} />
+          <PostsComponent key={post.slug} post={post} />
         ))}
       </div>
     </div>
