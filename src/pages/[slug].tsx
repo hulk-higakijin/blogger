@@ -1,9 +1,9 @@
 import { NextPage, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import { getAllPosts, getPostBySlug } from "../lib/api";
 import markdownToHtml from "../lib/markdownToHtml";
+import ProfileComponent from "../components/Layouts/Profile";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -55,14 +55,16 @@ const Post: NextPage<Props> = ({ post }) => {
       <div className="w-2/4 flex flex-col">
         <div className="flex flex-col">
           <h1 className="text-2xl font-bold">{post.title}</h1>
-          <p className="ml-auto text-sm">{post.date}</p>
+          <p className="ml-auto text-sm text-gray-500">{post.date}</p>
         </div>
         <div
           className="prose prose-h1:text-xl prose-h1:mt-10 prose-h2:text-lg prose-h2:my-4"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
-      <div className="w-1/4">プロフィールを表示</div>
+      <div className="w-1/4">
+        <ProfileComponent />
+      </div>
     </div>
   );
 };
