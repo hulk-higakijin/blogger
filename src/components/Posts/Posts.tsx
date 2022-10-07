@@ -6,7 +6,7 @@ const PostsComponent = ({ post }: { post: Post }) => {
       <a href={post.slug} className="flex flex-col gap-4">
         <div className="relative w-full h-60 object-cover">
           <Image
-            src="https://cdn.devdojo.com/images/may2021/workout.jpg"
+            src={post.thumbnail}
             layout="fill"
             className="rounded-xl"
             alt="thumbnail"

@@ -5,7 +5,7 @@ import PostsComponent from "../components/Posts/Posts";
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 export const getStaticProps = async () => {
-  const allPosts = getAllPosts(["slug", "title", "date", "tags"]);
+  const allPosts = getAllPosts(["slug", "title", "date", "tags", "thumbnail"]);
   return {
     props: { allPosts },
   };
