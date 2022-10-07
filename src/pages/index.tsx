@@ -14,7 +14,7 @@ export const getStaticProps = async () => {
 const Home: NextPage<Props> = ({ allPosts }) => {
   return (
     <div className="container mx-auto px-8">
-      <div className="grid grid-cols-3 gap-20">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
         {allPosts.map((post) => (
           <PostsComponent key={post.slug} post={post} />
         ))}
