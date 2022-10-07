@@ -2,13 +2,6 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-type Post = {
-  slug: string;
-  content: string;
-  title: string;
-  date: string;
-};
-
 const postsDirectory = path.join(process.cwd(), "content");
 
 /**
@@ -33,6 +26,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     content: "",
     title: "",
     date: "",
+    thumbnail: ""
   };
 
   fields.forEach((field) => {
@@ -42,7 +36,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (field === "content") {
       items[field] = content;
     }
-    if (field === "title" || field === "date") {
+    if (field === "title" || field === "date" || field === "thumbnail") {
       items[field] = data[field];
     }
   });

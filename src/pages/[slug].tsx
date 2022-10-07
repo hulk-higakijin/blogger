@@ -1,9 +1,10 @@
 import { NextPage, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import { getAllPosts, getPostBySlug } from "../lib/api";
 import markdownToHtml from "../lib/markdownToHtml";
+import ProfileComponent from "../components/Layouts/Profile";
+import Image from "next/image";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -28,7 +29,13 @@ export const getStaticPaths = async () => {
  * 記事の内容を取得する
  */
 export const getStaticProps = async ({ params }: any) => {
-  const post = getPostBySlug(params.slug, ["slug", "title", "date", "content"]);
+  const post = getPostBySlug(params.slug, [
+    "slug",
+    "title",
+    "date",
+    "content",
+    "thumbnail",
+  ]);
   // Markdown を HTML に変換する
   const content = await markdownToHtml(post.content);
   // content を詰め直して返す
@@ -47,22 +54,34 @@ const Post: NextPage<Props> = ({ post }) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+
   return (
-    <div className="container mx-auto p-8 flex gap-10">
-      <div className="w-1/4">
+    <div className="container mx-auto md:p-8 flex flex-col md:flex-row gap-10">
+      <div className="md:w-1/4 p-4">
         <p>ブログツリーを表示</p>
       </div>
-      <div className="w-2/4 flex flex-col">
-        <div className="flex flex-col">
+      <div className="md:w-2/4 flex flex-col">
+        <div className="p-4 flex flex-col gap-2">
           <h1 className="text-2xl font-bold">{post.title}</h1>
-          <p className="ml-auto text-sm">{post.date}</p>
+          <p className="ml-auto text-sm text-gray-500">{post.date}</p>
         </div>
+        <div className="relative h-96">
+          <Image
+            src={post.thumbnail}
+            alt="thumbnail"
+            layout="fill"
+            className="md:rounded"
+          />
+        </div>
+
         <div
-          className="prose prose-h1:text-xl prose-h1:mt-10 prose-h2:text-lg prose-h2:my-4"
+          className="prose prose-h1:text-xl prose-h1:mt-10 prose-h2:text-lg prose-h2:my-4 p-4"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
-      <div className="w-1/4">プロフィールを表示</div>
+      <div className="md:w-1/4 p-4">
+        <ProfileComponent />
+      </div>
     </div>
   );
 };
