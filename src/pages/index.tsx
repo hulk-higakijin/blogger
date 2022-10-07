@@ -13,7 +13,7 @@ export const getStaticProps = async () => {
 
 const Home: NextPage<Props> = ({ allPosts }) => {
   return (
-    <div>
+    <div className="container mx-auto px-8">
       <h1 className="font-bold">記事一覧</h1>
 
       <div>
