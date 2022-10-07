@@ -48,12 +48,12 @@ const Post: NextPage<Props> = ({ post }) => {
     return <ErrorPage statusCode={404} />;
   }
   return (
-    <div className="container mx-auto p-8 flex gap-10">
-      <div className="w-1/4">
+    <div className="container mx-auto p-4 md:p-8 flex flex-col md:flex-row gap-10">
+      <div className="md:w-1/4">
         <p>ブログツリーを表示</p>
       </div>
-      <div className="w-2/4 flex flex-col">
-        <div className="flex flex-col">
+      <div className="md:w-2/4 flex flex-col">
+        <div className="flex flex-col gap-2">
           <h1 className="text-2xl font-bold">{post.title}</h1>
           <p className="ml-auto text-sm text-gray-500">{post.date}</p>
         </div>
@@ -62,7 +62,7 @@ const Post: NextPage<Props> = ({ post }) => {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
-      <div className="w-1/4">
+      <div className="md:w-1/4">
         <ProfileComponent />
       </div>
     </div>
