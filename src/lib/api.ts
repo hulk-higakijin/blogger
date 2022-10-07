@@ -16,16 +16,15 @@ const postsDirectory = path.join(process.cwd(), "content");
  */
 export function getPostSlugs() {
   const allDirents = fs.readdirSync(postsDirectory, { withFileTypes: true });
-  return allDirents
-    .filter((dirent) => dirent.isDirectory())
-    .map(({ name }) => name);
+
+  return allDirents.map(({ name }) => name);
 }
 
 /**
  * 指定したフィールド名から、記事のフィールドの値を取得する
  */
 export function getPostBySlug(slug: string, fields: string[] = []) {
-  const fullPath = path.join(postsDirectory, slug, "index.md");
+  const fullPath = path.join(postsDirectory, `${slug}`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
