@@ -16,7 +16,7 @@ const PostContentComponent = ({ post }: { post: Post }) => {
           src={post.thumbnail}
           alt="thumbnail"
           layout="fill"
-          className="md:rounded"
+          className="md:rounded object-cover"
         />
       </div>
       <div
