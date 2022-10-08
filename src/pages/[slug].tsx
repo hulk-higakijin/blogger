@@ -4,9 +4,8 @@ import ErrorPage from "next/error";
 import { getAllPosts, getPostBySlug } from "../lib/api";
 import markdownToHtml from "../lib/markdownToHtml";
 import ProfileComponent from "../components/Layouts/Profile";
-import Image from "next/image";
 import PostsSidebarComponent from "../components/Posts/Sidebar";
-import PostTagsComponent from "../components/Posts/Tags";
+import PostContentComponent from "../components/Posts/Content";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -73,25 +72,7 @@ const Post: NextPage<Props> = ({ post, allPosts }) => {
         <PostsSidebarComponent allPosts={allPosts} />
       </div>
       <div className="md:w-2/4 flex flex-col">
-        <div className="p-4 flex flex-col gap-2">
-          <h1 className="text-2xl font-bold">{post.title}</h1>
-          <div className="flex">
-            <PostTagsComponent tags={post.tags} />
-            <p className="ml-auto text-sm text-gray-500">{post.date}</p>
-          </div>
-        </div>
-        <div className="relative h-96">
-          <Image
-            src={post.thumbnail}
-            alt="thumbnail"
-            layout="fill"
-            className="md:rounded"
-          />
-        </div>
-        <div
-          className="prose prose-h1:text-xl prose-h1:mt-10 prose-h2:text-lg prose-h2:my-4 p-4"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <PostContentComponent post={post} />
       </div>
       <div className="md:w-1/4 p-4">
         <ProfileComponent />
