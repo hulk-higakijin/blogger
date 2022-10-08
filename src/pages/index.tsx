@@ -29,6 +29,8 @@ const Home: NextPage<Props> = ({ allPosts }) => {
     if (typeof tag == "string") {
       const selectedPosts = allPosts.filter((post) => post.tags.includes(tag));
       setPosts(selectedPosts);
+    } else {
+      setPosts(allPosts)
     }
   }, [allPosts, tag]);
 
