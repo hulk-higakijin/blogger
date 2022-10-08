@@ -5,6 +5,7 @@ import { getAllPosts, getPostBySlug } from "../lib/api";
 import markdownToHtml from "../lib/markdownToHtml";
 import ProfileComponent from "../components/Layouts/Profile";
 import Image from "next/image";
+import PostsSidebarComponent from "../components/Posts/Sidebar";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -38,6 +39,7 @@ export const getStaticProps = async ({ params }: any) => {
   ]);
   // Markdown を HTML に変換する
   const content = await markdownToHtml(post.content);
+  const allPosts = getAllPosts(["slug", "title", "date", "tags", "thumbnail"]);
   // content を詰め直して返す
   return {
     props: {
@@ -45,20 +47,21 @@ export const getStaticProps = async ({ params }: any) => {
         ...post,
         content,
       },
+      allPosts
     },
   };
 };
 
-const Post: NextPage<Props> = ({ post }) => {
+const Post: NextPage<Props> = ({ post, allPosts }) => {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <div className="container mx-auto md:p-8 flex flex-col md:flex-row gap-10">
-      <div className="md:w-1/4 p-4">
-        <p>ブログツリーを表示</p>
+    <div className="container mx-auto flex flex-col md:flex-row gap-4">
+      <div className="md:w-1/4 hidden md:block">
+        <PostsSidebarComponent allPosts={allPosts} />
       </div>
       <div className="md:w-2/4 flex flex-col">
         <div className="p-4 flex flex-col gap-2">

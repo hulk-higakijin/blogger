@@ -4,11 +4,11 @@ const PostsComponent = ({ post }: { post: Post }) => {
   return (
     <>
       <a href={post.slug} className="flex flex-col gap-4">
-        <div className="relative w-full h-60 object-cover">
+        <div className="relative w-full h-60">
           <Image
             src={post.thumbnail}
             layout="fill"
-            className="rounded-xl"
+            className="rounded-xl object-cover"
             alt="thumbnail"
           />
         </div>

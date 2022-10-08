@@ -15,7 +15,7 @@ const ProfileComponent = () => {
         </div>
         <div className="flex flex-col gap-2 my-auto">
           <p className="text-xl md:mx-auto">ライター： 真庭治久</p>
-          <p className="text-gray-500 text-sm md:w-4/5 md:mx-auto">
+          <p className="text-gray-500 text-sm md:mx-auto">
             元 DMM WEB CAMP メンター。
             <br />
             現在フォースタートアップス株式会社でサーバーサイドエンジニアとして活動。
