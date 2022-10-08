@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PostTagsComponent from "./Tags";
 
 const PostsComponent = ({ post }: { post: Post }) => {
   return (
@@ -13,8 +14,8 @@ const PostsComponent = ({ post }: { post: Post }) => {
           />
         </div>
         <h2 className="text-lg font-semibold">{post.title}</h2>
-        <div className="text-sm text-gray-400 flex">
-          <p>written by higakijin</p>
+        <div className="text-sm text-gray-400 flex flex-col">
+          <PostTagsComponent tags={post.tags} />
           <p className="ml-auto">{post.date}</p>
         </div>
       </a>

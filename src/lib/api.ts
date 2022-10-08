@@ -26,7 +26,8 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     content: "",
     title: "",
     date: "",
-    thumbnail: ""
+    thumbnail: "",
+    tags: [],
   };
 
   fields.forEach((field) => {
@@ -36,7 +37,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
     if (field === "content") {
       items[field] = content;
     }
-    if (field === "title" || field === "date" || field === "thumbnail") {
+    if (field === "title" || field === "date" || field === "thumbnail" || field === "tags") {
       items[field] = data[field];
     }
   });
