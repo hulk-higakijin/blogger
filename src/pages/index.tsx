@@ -4,6 +4,7 @@ import PostsComponent from "../components/Posts/Posts";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import SelectedTagComponent from "../components/Posts/SelectedTag";
+import Head from "next/head";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -36,14 +37,20 @@ const Home: NextPage<Props> = ({ allPosts }) => {
   }, [allPosts, tag]);
 
   return (
-    <div className="container mx-auto px-8 flex flex-col gap-4">
-      {typeof tag == "string" && <SelectedTagComponent tag={tag} />}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-20">
-        {posts.map((post) => (
-          <PostsComponent key={post.slug} post={post} />
-        ))}
+    <>
+      <Head>
+        <title>ブログ一覧｜higakijin-blogger</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className="container mx-auto px-8 flex flex-col gap-4">
+        {typeof tag == "string" && <SelectedTagComponent tag={tag} />}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-20">
+          {posts.map((post) => (
+            <PostsComponent key={post.slug} post={post} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -6,6 +6,7 @@ import markdownToHtml from "../lib/markdownToHtml";
 import ProfileComponent from "../components/Layouts/Profile";
 import PostsSidebarComponent from "../components/Posts/Sidebar";
 import PostContentComponent from "../components/Posts/Content";
+import Head from "next/head";
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
@@ -67,17 +68,23 @@ const Post: NextPage<Props> = ({ post, allPosts }) => {
   }
 
   return (
-    <div className="container mx-auto flex flex-col md:flex-row gap-4">
-      <div className="md:w-1/4 hidden md:block">
-        <PostsSidebarComponent allPosts={allPosts} />
+    <>
+      <Head>
+        <title>{ post.title } | higakijin-blogger</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div className="container mx-auto flex flex-col md:flex-row gap-4">
+        <div className="md:w-1/4 hidden md:block">
+          <PostsSidebarComponent allPosts={allPosts} />
+        </div>
+        <div className="md:w-2/4 flex flex-col">
+          <PostContentComponent post={post} />
+        </div>
+        <div className="md:w-1/4 p-4">
+          <ProfileComponent />
+        </div>
       </div>
-      <div className="md:w-2/4 flex flex-col">
-        <PostContentComponent post={post} />
-      </div>
-      <div className="md:w-1/4 p-4">
-        <ProfileComponent />
-      </div>
-    </div>
+    </>
   );
 };
 
