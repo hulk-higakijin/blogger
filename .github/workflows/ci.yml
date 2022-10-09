@@ -18,5 +18,5 @@ jobs:
         run: yarn prettier
       - name: Lint
         run: yarn lint
-      # - name: Jest
-      #   run: yarn test
+      - name: Jest
+        run: yarn test
