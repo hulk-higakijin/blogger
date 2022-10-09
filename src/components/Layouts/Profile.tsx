@@ -6,7 +6,7 @@ const ProfileComponent = () => {
       <div className="mx-auto flex md:flex-col gap-4">
         <div className="w-fit h-fit mx-auto">
           <Image
-            src="https://avatars.githubusercontent.com/u/76689059?v=4"
+            src="https://pbs.twimg.com/profile_images/1388720052862525444/6Ge2RLYf_400x400.jpg"
             width={200}
             height={200}
             alt="profile"
