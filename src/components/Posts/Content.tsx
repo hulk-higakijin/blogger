@@ -1,5 +1,5 @@
-import PostTagsComponent from "./Tags";
-import Image from "next/image";
+import Image from 'next/image'
+import PostTagsComponent from './Tags'
 
 const PostContentComponent = ({ post }: { post: Post }) => {
   return (
@@ -24,7 +24,7 @@ const PostContentComponent = ({ post }: { post: Post }) => {
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
     </>
-  );
-};
+  )
+}
 
-export default PostContentComponent;
+export default PostContentComponent

@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBan, faTag } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
+import { faBan, faTag } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
 
-const SelectedTagComponent = ({ tag }: { tag: string}) => {
+const SelectedTagComponent = ({ tag }: { tag: string }) => {
   return (
     <>
       <div className="flex gap-2 border w-fit px-2 bg-gray-100 rounded-full text-gray-600">
@@ -16,7 +16,7 @@ const SelectedTagComponent = ({ tag }: { tag: string}) => {
         </Link>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default SelectedTagComponent;
+export default SelectedTagComponent

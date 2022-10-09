@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link'
 
 const PostTagsComponent = ({ tags }: { tags: String[] }) => {
   return (
@@ -14,7 +14,7 @@ const PostTagsComponent = ({ tags }: { tags: String[] }) => {
         </Link>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default PostTagsComponent;
+export default PostTagsComponent

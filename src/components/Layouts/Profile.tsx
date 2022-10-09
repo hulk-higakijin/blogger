@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 const ProfileComponent = () => {
   return (
@@ -25,7 +25,7 @@ const ProfileComponent = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProfileComponent;
+export default ProfileComponent
