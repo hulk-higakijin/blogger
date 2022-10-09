@@ -1,5 +1,5 @@
-import Image from "next/image";
-import PostTagsComponent from "./Tags";
+import Image from 'next/image'
+import PostTagsComponent from './Tags'
 
 const PostsComponent = ({ post }: { post: Post }) => {
   return (
@@ -20,7 +20,7 @@ const PostsComponent = ({ post }: { post: Post }) => {
         </div>
       </a>
     </>
-  );
-};
+  )
+}
 
-export default PostsComponent;
+export default PostsComponent

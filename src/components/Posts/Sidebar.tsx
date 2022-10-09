@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
 const PostsSidebar = ({ allPosts }: { allPosts: Post[] }) => {
   return (
@@ -9,14 +9,19 @@ const PostsSidebar = ({ allPosts }: { allPosts: Post[] }) => {
         <Link key={post.slug} href={`/${post.slug}`}>
           <div className="flex gap-2 py-2 border-b cursor-pointer hover:bg-gray-100">
             <div className="relative w-1/4 h-12">
-              <Image src={post.thumbnail} alt="thumbnail" layout="fill" className="object-contain" />
+              <Image
+                src={post.thumbnail}
+                alt="thumbnail"
+                layout="fill"
+                className="object-contain"
+              />
             </div>
             <p className="my-auto w-3/4 text-sm">{post.title}</p>
           </div>
         </Link>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default PostsSidebar;
+export default PostsSidebar
