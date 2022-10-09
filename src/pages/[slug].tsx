@@ -1,12 +1,12 @@
 import { NextPage, InferGetStaticPropsType } from 'next'
-import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import ProfileComponent from '../components/Layouts/Profile'
+import PostContentComponent from '../components/Posts/Content'
+import PostsSidebarComponent from '../components/Posts/Sidebar'
 import { getAllPosts, getPostBySlug } from '../lib/api'
 import markdownToHtml from '../lib/markdownToHtml'
-import ProfileComponent from '../components/Layouts/Profile'
-import PostsSidebarComponent from '../components/Posts/Sidebar'
-import PostContentComponent from '../components/Posts/Content'
-import Head from 'next/head'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

@@ -1,10 +1,10 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
-import { getAllPosts } from '../lib/api'
-import PostsComponent from '../components/Posts/Posts'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
+import PostsComponent from '../components/Posts/Posts'
 import SelectedTagComponent from '../components/Posts/SelectedTag'
-import Head from 'next/head'
+import { getAllPosts } from '../lib/api'
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>
 

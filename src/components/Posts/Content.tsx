@@ -1,5 +1,5 @@
-import PostTagsComponent from './Tags'
 import Image from 'next/image'
+import PostTagsComponent from './Tags'
 
 const PostContentComponent = ({ post }: { post: Post }) => {
   return (
