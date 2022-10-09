@@ -1,7 +1,9 @@
-import Header from "../../../src/components/Layouts/Header"
+import { render } from '@testing-library/react'
+import Header from 'components/Layouts/Header'
 
-describe('1+1=2', () => {
-  it('hogehoge', () => {
-    expect(1 + 1).toBe(2)
+describe('Headerコンポーネントが', () => {
+  it('機能すること', () => {
+    const { getByText } = render(<Header />)
+    expect(getByText('MarkBlog')).toBeTruthy()
   })
 })
