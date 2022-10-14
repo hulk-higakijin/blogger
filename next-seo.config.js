@@ -16,6 +16,15 @@ const next_seo_config = {
     type: 'website',
     locale: 'ja_JP',
     site_name: 'higakijin-blogger',
+    images: [
+      {
+        url: 'https://pbs.twimg.com/profile_images/1388720052862525444/6Ge2RLYf_400x400.jpg',
+        width: 800,
+        height: 600,
+        alt: 'Og Image Alt',
+        type: 'image/jpeg',
+      },
+    ],
   },
   // twitter: {
   //   handle: '@hogehoge',

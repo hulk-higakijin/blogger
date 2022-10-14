@@ -72,6 +72,17 @@ const Post: NextPage<Props> = ({ post, allPosts }) => {
       <NextSeo
         title={post.title}
         description={post.content.replace(/(<([^>]+)>)/gi, '').slice(0, 200)}
+        openGraph={{
+          images: [
+            {
+              url: post.thumbnail,
+              width: 800,
+              height: 600,
+              alt: 'Og Image Alt',
+              type: 'image/jpeg',
+            },
+          ],
+        }}
       />
       <div className="container mx-auto flex flex-col md:flex-row gap-4">
         <div className="md:w-1/4 hidden md:block">

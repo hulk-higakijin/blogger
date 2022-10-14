@@ -10,7 +10,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <>
         <Head>
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicons/higakijin.png" />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicons/higakijin.png"
+          />
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
