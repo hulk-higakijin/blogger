@@ -1,5 +1,5 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import PostsComponent from '../components/Posts/Posts'
@@ -38,10 +38,10 @@ const Home: NextPage<Props> = ({ allPosts }) => {
 
   return (
     <>
-      <Head>
-        <title>ブログ一覧｜higakijin-blogger</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <NextSeo
+        title="ブログ一覧"
+        description="ひよこエンジニアのテックブログ"
+      />
       <div className="container mx-auto px-8 flex flex-col gap-4">
         {typeof tag == 'string' && <SelectedTagComponent tag={tag} />}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-20">
