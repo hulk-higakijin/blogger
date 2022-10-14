@@ -1,6 +1,6 @@
 import { NextPage, InferGetStaticPropsType } from 'next'
+import { NextSeo } from 'next-seo'
 import ErrorPage from 'next/error'
-import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ProfileComponent from '../components/Layouts/Profile'
 import PostContentComponent from '../components/Posts/Content'
@@ -69,10 +69,10 @@ const Post: NextPage<Props> = ({ post, allPosts }) => {
 
   return (
     <>
-      <Head>
-        <title>{post.title} | higakijin-blogger</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+      <NextSeo
+        title={post.title}
+        description={post.content.replace(/(<([^>]+)>)/gi, '').slice(0, 200)}
+      />
       <div className="container mx-auto flex flex-col md:flex-row gap-4">
         <div className="md:w-1/4 hidden md:block">
           <PostsSidebarComponent allPosts={allPosts} />
